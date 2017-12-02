@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Masa ładunku" id="pole">
+    <input type="submit" id="click-button" value="ładuj">
+    <p id="masa">Masa:</p>
+
+
+    <script>
+        /* Na stronie znajduje się pole tekstowe - po wpisaniu tam kwoty datku i naciśnięciu przycisku wpłać, jest ona dodawana do ogólnej sumy zebranych środków. Odnotowywana jest również liczba wpłat i wyświetlana ich średnia wartość. Nieprawidłową wpłatę (NaN lub liczba mniejsza od 0) traktuj jako 0 */
+        var clicker = document.querySelector("#click-button")
+        var suma = 0;
+        var ile = 0;
+
+        clicker.addEventListener("click", function() {
+            var masa = parseFloat(document.querySelector("#pole").value);
+            suma += masa;
+            if (suma < 1000) {
+                document.querySelector("#masa").innerHTML = `Masa: ${suma}`;
+            } else {
+                document.querySelector("#masa").innerHTML = `Masa przekroczyła 1000kg o ${suma-1000}kg`
+            }
+        }); // koniec zdarzenia
+    </script>
+</body>
+
+</html>

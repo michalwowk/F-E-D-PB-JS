@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="imie" placeholder="Imię i nazwisko gościa">
+    <input type="submit" id="wpisz-button" value="Wpisz na listę gości">
+    <ol id="lista">
+        <li>Ania Dąbrowska</li>
+        <li>Beatka Kozidrak</li>
+    </ol>
+    <script>
+        /*    Na stronie wyświetlana jest lista gości (w postaci napisu, np. "Ala, Tomek, Monika, Piotr"). Po wpisaniu imienia i naciśnięciu przycisku, jest ono dodawane do listy (doklejane do napisu)   */
+
+        var wpisz = document.querySelector("#wpisz-button");
+        var lista = document.querySelector("#lista");
+
+        wpisz.addEventListener("click", function() {
+            var nastepny = document.querySelector("#imie").value; // Lapiemy tak <ol>
+            var nowyElement = document.createElement('li'); // Tworzymy nowy element listy
+            nowyElement.textContent = nastepny; // Dodajemy wnetrze znacznikow listy
+            lista.appendChild(nowyElement); // Dodajemy nowy element na koniec listy ol
+        }); //  koniec zdarzenia click, inputa o id wpisz-button
+    </script>
+</body>
+
+</html>

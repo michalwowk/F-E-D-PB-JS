@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="submit" id="input" value="zwieksz" onclick="klik()">
+    <p id="result">Kliknales</p>
+    <p id="licznik">Liczba</p>
+    <script>
+        var klikniecia = 0;
+        var liczba = 0;
+        var a = 1;
+        var ile = 1;
+        function klik() {
+            if (ile <= 5) {
+                klikniecia++;
+                ile++;
+                liczba += a;
+            } else {
+                klikniecia++;
+                ile = 1;
+                a++;
+                liczba += a;
+            }
+            document.getElementById("result").innerHTML = "kliknales: " + klikniecia;
+            document.getElementById("licznik").innerHTML = "liczba: " + liczba;
+        }; // koniec funkcji klik();
+    </script>
+</body>
+
+</html>

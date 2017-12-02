@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="field1">
+    <input type="submit" id="click">
+    <p id="result"></p>
+
+    <script>
+        var clickBtn = document.getElementById('click');
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var arr2 = [];
+        var result = document.getElementById('result');
+
+        var max = Math.max(...arr);
+        var min = Math.min(...arr);
+
+        var suma = 0;
+        var ile = 0;
+        var overAverage = 0;
+
+        clickBtn.addEventListener('click', function() {
+            var P = parseInt(document.getElementById('field1').value, 10);
+            var Pprocent = 1 + P / 100;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 == 0) {
+                arr2.push(Math.ceil(arr[i] * Pprocent));
+            }
+        }
+            
+        console.log(arr); console.log(arr2);
+        arr2 = [];
+        }); // koniec zdarzenia onClick
+
+    </script>
+</body>
+
+</html>

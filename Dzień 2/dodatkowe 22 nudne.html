@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>zadanie dodatkowe 22</title>
+</head>
+
+<body>
+    <input type="text" id="punkty">
+    <input type="submit" value="ocen" id="ocen">
+
+    <p id="result">Twoja ocena to:</p>
+    <script>
+        var uchwyt = document.querySelector("#ocen")
+
+        uchwyt.addEventListener("click", function() {
+                    var punkty = parseInt(document.querySelector("#punkty").value);
+                        if (punkty <= 40) {
+                            document.querySelector("#result").innerHTML = `Twoja ocana to dst`;
+                        } else if (punkty > 40 && punkty <= 60) {
+                            document.querySelector("#result").innerHTML = `Twoja ocana to dst+`;
+                        } else if (punkty > 60 && punkty <= 70) {
+                            document.querySelector("#result").innerHTML = `Twoja ocana to db`;
+                        } else if (punkty > 70 && punkty <= 75) {
+                            document.querySelector("#result").innerHTML = `Twoja ocana to db+`;
+                        } else{
+                            document.querySelector("#result").innerHTML = `Twoja ocana to bdb`;
+                        }
+                    })
+
+    </script>
+</body>
+
+</html>

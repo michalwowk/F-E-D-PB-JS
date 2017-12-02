@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="iks">
+    <input type="text" id="igrek">
+
+    <input type="submit" id="licz" value="licz">
+    <p id="result"></p>
+    <script>
+        /*    Na stronie wyświetlane są dwa pola, do wczytania wartości X i Y. Po naciśnięciu przycisku, wyświetlana jest informacja "X<Y", "X>Y" lub "obie wartości są równe"    */
+
+        var licz = document.querySelector("#licz");
+
+        licz.addEventListener("click", function() {
+            var x = parseFloat(document.querySelector("#iks").value);
+            var y = parseFloat(document.querySelector("#igrek").value);
+            if (x > y) {
+                document.querySelector("#result").innerHTML = `X jest wieksze`;
+            } else if (x < y) {
+                document.querySelector("#result").innerHTML = `Y jest wieksze`;
+            } else if (x == y) {
+                document.querySelector("#result").innerHTML = `Wartosci sa rowne`;
+            } else {
+                document.querySelector("#result").innerHTML = `Prosze podaj liczbe`;
+            }
+        }); ///  koniec zdarzenia click, inputa o id licz
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Masa ładunku" id="pole">
+    <input type="submit" id="click-button" value="ładuj">
+    <p id="lowestPrice"></p>
+
+
+    <script>
+        /* Na stronie znajduje się pole na wpisanie kwoty oraz przycisk "licytuj". Poniżej wyświetlana jest wartość najwyższej oferty. Po naciśnięciu przycisku sprawdzamy, czy nowa kwota nie jest większa i ewentualnie aktualizujemy wyświetloną wartość.*/
+        var clicker = document.querySelector("#click-button")
+        var sum = 0;
+        var lowestPrice = 0;
+        document.querySelector('#lowestPrice').innerHTML = `Najnizsza kwota to: ${lowestPrice}`
+
+        clicker.addEventListener("click", function() {
+            var fieldValue = parseFloat(document.querySelector("#pole").value);
+            if (fieldValue > lowestPrice) {
+                lowestPrice = fieldValue;
+            }
+            document.querySelector("#lowestPrice").innerHTML = `Masa: ${lowestPrice}`;
+        }); // koniec zdarzenia
+    </script>
+</body>
+
+</html>

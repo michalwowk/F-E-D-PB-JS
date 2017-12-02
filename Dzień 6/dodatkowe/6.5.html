@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <input type="text" placeholder="ilosc kolumn #f1" id="field_1">
+    <div id="wrapper">
+        <input type="button" id="btn_1" value="Make a table">
+
+    </div>
+</body>
+<script>
+    // Grabs ///////////////
+    var btn_1 = document.getElementById('btn_1')
+    var wrapper = document.getElementById('wrapper');
+    // Creating tbody
+    var table = document.createElement('table');
+    wrapper.appendChild(table);
+    var tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+
+    // There we go, lets make column and row ! ///////////
+    btn_1.addEventListener('click', function() {
+        var f1_V = parseInt(document.getElementById('field_1').value, 10);
+        var ile = Math.pow(2,f1_V-1);
+        for (var r = 1; r < f1_V+1; r++) {
+            var row = document.createElement('tr');
+            tbody.appendChild(row);
+            // Lets make some cells :P 
+            for (var c = 0; c < f1_V; c++) {
+                var cells = document.createElement('td');
+                var tekst = document.createTextNode(f1_V);
+                
+                cells.appendChild(tekst)
+
+                }
+                row.appendChild(cells)
+            }
+    })
+
+</script>
+
+</html>

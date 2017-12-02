@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="field1" placeholder="N">
+    <input type="submit" id="click">
+    <p id="result"></p>
+
+    <script>
+        var clickBtn = document.getElementById('click');
+        var arr = [0, 1, 2, 3, 5, 4, 6, 5, 8, 6, 7, 8, 9];
+        var arr2 = [];
+        var result = document.getElementById('result');
+
+        var max = Math.max(...arr);
+        var min = Math.min(...arr);
+
+        var suma = 0;
+        var ile = 0;
+        var overAverage = 0;
+
+        clickBtn.addEventListener('click', function() {
+            for (var i = 1; i < arr.length-1; i++) {
+                if(arr[i]>arr[i-1] && arr[i]>arr[i+1]){
+                    ile++;
+                    arr2.push(arr[i]);
+                }
+            }
+            console.log(arr2)
+            console.log(ile);
+        }); // koniec zdarzenia onClick
+
+    </script>
+</body>
+
+</html>

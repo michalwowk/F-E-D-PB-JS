@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="field1">
+    <input type="submit" id="click">
+    <p id="result"></p>
+
+    <script>
+        /// 1 sposob na szukanie najwiekszej w tablicy
+/*         Array.prototype.max = function() {
+            return Math.max.apply(null, this);
+        };
+        
+        Array.prototype.min = function() {
+            return Math.min.apply(null, this);
+        }; */
+
+
+        var clickBtn = document.getElementById('click');
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 2, 2];
+        var result = document.getElementById('result');
+        // drugi sposob
+        var min = Math.min(...arr)
+        var secondMin = Math.max(...arr)
+
+        clickBtn.addEventListener('click', function() {
+            var x = parseInt(document.getElementById('field1').value, 10)
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] < secondMin && arr[i] !== min) {
+                    secondMin = arr[i];
+                }
+            }
+            console.log(secondMin);
+            console.log(arr);
+        }); // koniec zdarzenia onClick
+
+    </script>
+</body>
+
+</html>

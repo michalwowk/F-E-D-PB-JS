@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Prosze podaj numerm miesiaca" id="pole">
+    <input type="submit" id="click-button" value="ładuj">
+    <p id="month"></p>
+
+
+    <script>
+        /* Na stronie znajduje się pole na wpisanie kwoty oraz przycisk "licytuj". Poniżej wyświetlana jest wartość najwyższej oferty. Po naciśnięciu przycisku sprawdzamy, czy nowa kwota nie jest większa i ewentualnie aktualizujemy wyświetloną wartość.*/
+        var clicker = document.querySelector("#click-button")
+        var sum = 0;
+        var lowestPrice = 0;
+        var answers;
+
+        clicker.addEventListener("click", function() {
+            var fieldValue = parseInt(document.querySelector('#pole').value, 10)
+            switch (fieldValue) {
+                case 1:
+                    answers = `Miesiac numer ${fieldValue} to Styczen`;
+                    break;
+                case 2:
+                    answers = `Miesiac numer ${fieldValue} to Luty`;
+                    break;
+                case 3:
+                    answers = `Miesiac numer ${fieldValue} to Marzec`;
+                    break;
+                case 4:
+                    answers = `Miesiac numer ${fieldValue} to Kwiecien`;
+                    break;
+                case 5:
+                    answers = `Miesiac numer ${fieldValue} to Maj`;
+                    break;
+                case 6:
+                    answers = `Miesiac numer ${fieldValue} to Czerwiec`;
+                    break;
+                case 7:
+                    answers = `Miesiac numer ${fieldValue} to Lipiec`;
+                    break;
+                case 8:
+                    answers = `Miesiac numer ${fieldValue} to Sierpiec`;
+                    break;
+                case 9:
+                    answers = `Miesiac numer ${fieldValue} to Wrzesien`;
+                    break;
+                case 10:
+                    answers = `Miesiac numer ${fieldValue} to Pizdziernik`;
+                    break;
+                case 11:
+                    answers = `Miesiac numer ${fieldValue} to Listopad`;
+                    break;
+                case 12:
+                    answers = `Miesiac numer ${fieldValue} to Grudzien`;
+                    break;
+                default:
+                    answers = `Prosze podaj numer miesiaca, a nie inne pierdolki`
+            }
+        document.querySelector('#month').innerHTML = answers;
+
+        }); // koniec zdarzenia
+
+    </script>
+</body>
+
+</html>

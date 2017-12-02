@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="field1">
+    <input type="submit" id="click">
+    <p id="result"></p>
+
+    <script>
+        var clickBtn = document.getElementById('click');
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var arr2 = [];
+        var result = document.getElementById('result');
+
+        var max = Math.max(...arr);
+        var min = Math.min(...arr);
+
+        var ile = 0;
+        var suma = 0;
+
+        clickBtn.addEventListener('click', function() {
+            var a = parseInt(document.getElementById('field1').value, 10);
+
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] % a !== 0) {;
+                    console.log(arr[i])
+                    suma += arr[i];
+                    ile++;
+                }
+            }
+            var srednia = suma / ile;
+            console.log(suma);
+            console.log(ile);
+            console.log(srednia);
+            ile = 0;
+            suma = 0;
+        }); // koniec zdarzenia onClick
+
+    </script>
+</body>
+
+</html>

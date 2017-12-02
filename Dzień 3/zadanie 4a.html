@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Stwórz tablicę o wskazanym rozmiarze wypełnioną losowymi wartościami, a następnie policz
+ile jest wartości należących do wskazanego przez użytkownika przedziału -->
+
+    <input type="submit" id="click" value="wykonaj zadanie">
+    <input type="text" id="array-size" placeholder="rozmiar tabeli">
+    <input type="text" id="x-value" placeholder="od">
+    <input type="text" id="y-value" placeholder="do">
+    <p id="output"></p>
+    <script>
+        // Grabs
+        const clickSubmit = document.querySelector('#click');
+        // Array
+        let arr = [];
+        const amountOfRandoms = 20
+        let ile=0;
+        
+
+
+
+        clickSubmit.addEventListener('click', function() {
+            arr.length = parseInt(document.querySelector("#array-size").value, 10);
+            const x = parseInt(document.querySelector("#x-value").value, 10);
+            const y = parseInt(document.querySelector("#y-value").value, 10);
+            var len = arr.length;
+            var roznica = 0;
+            for (let i = 0; i < len; i++) {
+                arr[i] = Math.floor(Math.random() * amountOfRandoms + 1) // losuje liczby 
+                if(arr[i]>=x && arr[i]<=y ){
+                    ile++;
+                }
+            }
+            console.log(arr)
+            console.log(ile)
+            
+       
+        }); // koniec zdarzenia
+
+    </script>
+</body>
+
+</html>

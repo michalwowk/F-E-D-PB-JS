@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="login" placeholder="login">
+    <input type="text" id="pass" placeholder="password">
+
+    <input type="submit" id="login-button" value="Zaloguj">
+    <p id="result"></p>
+    <script>
+        /*    Na stronie wyświetlane są dwa pola tekstowe na wpisanie loginu i hasła. Po naciśnięciu przycisku zaloguj, wyświetlany jest komunikat powitalny (inny dla zwykłego użytkownika, inny dla administratora), o ile hasło jest prawidłowe ("admin" ma hasło "h4Xo-oR!", "user1" hasło "abcd", "user2" hasło "xyz123", a "user3" hasło "54321" */
+
+        var log = document.querySelector("#login-button");
+
+        log.addEventListener("click", function() {
+            var login = document.querySelector("#login").value;
+            var pass = document.querySelector("#pass").value;
+            var users = ["admin", "user1", "user2", "user3"]
+            var passwords = ["h4Xo-oR!", "abcd", "xyz123", "54321"]
+
+            if (login == users[0] && pass == passwords[0]) {
+                document.querySelector("#result").innerHTML = `Udało Ci się zalogować`;
+            } else if (login == users[1] && pass == passwords[1]) {
+                document.querySelector("#result").innerHTML = `Udało Ci się zalogować`;
+            } else if (login == users[2] && pass == passwords[2]) {
+                document.querySelector("#result").innerHTML = `Udało Ci się zalogować`;
+            } else if (login == users[3] && pass == passwords[3]) {
+                document.querySelector("#result").innerHTML = `Udało Ci się zalogować`;
+            } else {
+                document.querySelector("#result").innerHTML = `Nie udało Ci się zalogować`;
+            }
+
+
+        }); ///  koniec zdarzenia click, inputa o id licz
+        
+        // Z pewnoscia da sie wydajniej, nie chcialo mi sie zastanawiac te 
+
+    </script>
+</body>
+
+</html>

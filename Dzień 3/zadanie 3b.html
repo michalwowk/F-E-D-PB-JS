@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Stwórz tablicę o wskazanym rozmiarze wypełnioną losowymi wartościami, a następnie znajdź:
+najmniejszą wartość większą od x (np. dla x = 10 i tablicy [9, 10, 12, 3, 6, 13, 5, 1, 19, 15] szukaną wartością będzie 12)-->
+
+    <input type="submit" id="click">
+    <input type="text" id="array-size">
+    <input type="text" id="x-value">
+    <p id="output"></p>
+    <script>
+        // Grabs
+        const clickSubmit = document.querySelector('#click');
+        // Array
+        let arr = [];
+        let arr2 = [];
+        let max = 0;
+        const amountOfRandoms = 20
+        let min = amountOfRandoms;
+        let minArrValue;
+
+
+
+
+        clickSubmit.addEventListener('click', function() {
+            arr.length = parseInt(document.querySelector("#array-size").value, 10);
+            const x = parseInt(document.querySelector("#x-value").value, 10);
+            var len = arr.length;
+            var roznica = 0;
+            for (let i = 0; i < len; i++) {
+                arr[i] = Math.floor(Math.random() * amountOfRandoms + 1) // losuje liczby i pobiera x -  sprawdzone
+                roznica = arr[i] - x;
+                console.log('roznica: ' + roznica)
+                if (roznica > 0 && roznica < min) {
+                    min = roznica;
+                    minArrValue = arr[i]
+                }
+            }
+
+
+            console.log(arr)
+            console.log('x: ' + x)
+            console.log(min)
+            console.log('najniejsza wartosc: ' + minArrValue)
+
+        }); // koniec zdarzenia
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!-- Funkcja na podstawie tablicy liczb tworzy pionową tabelę - w pierwszej kolumnie wyświetlane są wartości z tablicy, natomiast w drugiej sumy wartości kolejnych par elementów (zerowego z pierwszym, drugiego z trzecim, czwartego z piątym i tak dalej) - przy czym każda z komórek drugiej kolumny rozciąga się na wysokość dwóch wierszy.
+To samo, ale dla poziomej tabeli - pierwszy wiersz to wartości, natomiast drugi - rozciągnięte komórki z sumami par. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #222222;
+            color: white;
+        }
+        tr {
+            text-align: center;
+        }
+        td {
+            border: 1px solid #dddddd;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper"></div>
+
+
+    <script>
+        var wrapper = document.getElementById('wrapper');
+        // Tworzymy elementy składowe naszej tabeli
+        var table = document.createElement('table');
+        var tbody = document.createElement('tbody');
+
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        wrapper.appendChild(table);
+        table.appendChild(tbody);
+
+        /* // 1 pętla tworzy wiersze
+         for (var r = 0; r < arr.length; r++) {
+             var row = document.createElement('tr')
+             tbody.appendChild(row);
+             // 2 pętla tworząca kolumny, nam potrzeba tylko 2
+             for (var c = 0; c < 2; c++) {
+                 var cell = document.createElement('td');
+                 row.appendChild(cell);
+
+                 if (c === 0) {
+                     cell.textContent = arr[r] // wypełniamy 1 komorki
+                 } else {
+                     if (r % 2 !== 0) { // jesli wiersz nie jest parzysty to go pomin
+                         break; 
+                     } else { // w przeciwynym wypadku 
+                         var sum = arr[r] + arr[r + 1];
+                         cell.rowSpan = 2;
+                         cell.textContent = sum;
+                     }
+                 }
+
+             }
+         }*/
+
+        for (var r = 0; r < 2; r++) {
+            var row = document.createElement('tr')
+            tbody.appendChild(row);
+            for (c = 0; c < arr.length; c++) {
+                var myCol = document.createElement('td')
+                row.appendChild(myCol);
+                if (r === 0) {
+                    myCol.textContent = arr[c]; // wypelniamy 1 wiersze
+                } else {
+                    if (c % 2 !== 0) {
+                        break;
+                    } else {
+                        var sum = arr[c] + arr[c + 1];
+                        myCol.colSpan = 2;
+                        myCol.textContent = sum;
+                        c++;
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

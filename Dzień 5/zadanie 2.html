@@ -1,0 +1,152 @@
+<!-- Dzień 5 zadanie 2
+Napisz funkcję, która przyjmuje jako parametr javascriptową tablicę, a następnie tworzy na jej podstawie tabelę (jednokolumnową).
+Przygotuj interfejs, zawierający:
+- dwa przyciski do sortowania zawartości tabeli: "rosnąco" i "malejąco",
+- trzy przyciski do filtrowania zawartości tabeli: "parzyste", "nieparzyste" oraz "wszystkie",
+- każde kliknięcie powinno czyścić zawartość tabeli i wypełniać ją na nowo.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="pole" placeholder="pole">
+    <input type="submit" id="createArrBtn" value="Stworz tabele"><br/>
+    <input type="submit" id="sortAsc" value="Sortuj rosnaco">
+    <input type="submit" id="sortDsc" value="Sortuj malejaco"><br/>
+    <input type="submit" id="sortEven" value="Pokaz parzyste">
+    <input type="submit" id="sortOdd" value="Pokaz nieprzyste">
+    <input type="submit" id="showAll" value="Pokaz wszystkie"><br/>
+
+    <p id="result">result</p>
+
+    <div id="wrapper"></div>
+
+    <script>
+        ///////////////// Podstawowe zmienne globalne ////////////////////////
+        var createArrBtn = document.querySelector('#createArrBtn');
+        var sortAscBtn = document.querySelector('#sortAsc');
+        var sortDscBtn = document.querySelector('#sortDsc');
+        var sortEvenBtn = document.querySelector('#sortEven');
+        var sortOddBtn = document.querySelector('#sortOdd');
+        var showAllBtn = document.querySelector('#showAll');
+        var arr = []; // pusta tabela
+        var rangeOfRandoms = 20; // zakres losowanych licz od 0 - x;
+
+        ///////////////// Tworzenie tabeli w elemencie HTML ////////////////
+
+        // Chwytamy pojemnik
+        var wrapper = document.querySelector('#wrapper')
+        // Tworzymy elementy do wrzucenia
+        var table = document.createElement('table');
+        var tableBody = document.createElement('tbody');
+        // Wrzucamy elementy
+        wrapper.appendChild(table);
+        table.appendChild(tableBody);
+
+        //////////////////////////////////////////////////////////////////////
+        // Obsługa zdarzenia pokaz wszystkie
+        showAllBtn.addEventListener('click', function() {
+            clearTable(arr);
+            oneColumnTable(arr);
+            
+        });
+        // Obsługa zdarzenia sortowania liczb nieparzystych
+        sortOddBtn.addEventListener('click', function() {
+            clearTable(arr);
+            sortOdd(arr);
+        });
+
+        // Obsługa zdarzenia sortowania liczb parzystych
+        sortEvenBtn.addEventListener('click', function() {
+            clearTable(arr);
+            sortEven(arr);
+        });
+        // Obsługa zdarzenia sortowania tablicy rosnąco
+        sortAscBtn.addEventListener('click', function() {
+            clearTable(arr);
+            sortAsc(arr);
+        });
+        // Obsługa zdarzenia sortowania tablicy malejaco
+        sortDscBtn.addEventListener('click', function() {
+            clearTable(arr);
+            sortDsc(arr);
+        });
+        // Obsługa zdarzenia tworzenia nowej tablicy i tworzenia tabeli
+        createArrBtn.addEventListener('click', function() {
+            var value1 = parseInt(document.querySelector('#pole').value, 10);
+            createAnArray(value1);
+            document.querySelector('#result').innerHTML = arr;
+            oneColumnTable(arr);
+        });
+
+        function sortOdd(arr) {
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 !== 0) {
+                    var row = tableBody.insertRow(-1);
+                    var cell = row.insertCell(-1);
+                    cell.textContent = arr[i];
+                }
+            }
+        }; // koniec funkcji sortOdd
+
+        function sortEven(arr) {
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 === 0) {
+                    var row = tableBody.insertRow(-1);
+                    var cell = row.insertCell(-1);
+                    cell.textContent = arr[i];
+                }
+            }
+        }; // koniec funkcji sortEven
+
+        function sortDsc(arr) {
+            arr.sort(function(a, b) {
+                return b - a;
+            });
+            oneColumnTable(arr);
+        } // koniec funkcji sortDsc
+
+        function sortAsc(arr) {
+            arr.sort(function(a, b) {
+                return a - b;
+            })
+            oneColumnTable(arr);
+        }; // Koniec funkcji sortAsc
+        
+        // function czyszczaca tabele
+        function clearTable(){
+            var tableRows = document.querySelectorAll('tbody tr');
+            for(var i=0;i<tableRows.length;i++){
+                tableBody.removeChild(tableRows[i]);
+            }
+            
+        }
+        
+        // Funkcja tworząca 1 kolumnową tabelę 
+        function oneColumnTable(array) {
+            for (var r = 0; r < array.length; r++) {
+                var row = tableBody.insertRow(-1);
+                var cell = row.insertCell(-1);
+                cell.textContent = array[r];
+            }
+        }; // Koniec funkcji oneColumnTables
+
+        // Funkcja tworząca losową tablicę o rozmiarze zczytanym z pola tekstowego
+        function createAnArray(arrSize) {
+            for (i = 0; i < arrSize; i++) {
+                var los = Math.floor(Math.random() * rangeOfRandoms + 1);
+                arr[i] = los;
+            }
+        }; /// Koniec funkcji createAnArray
+
+    </script>
+</body>
+
+</html>

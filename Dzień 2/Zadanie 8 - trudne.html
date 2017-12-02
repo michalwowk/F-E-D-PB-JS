@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="submit" id="mniej" value="mniej">
+    <input type="submit" id="wiecej" value="wiecej">
+    <input type="submit" id="zgadles" value="zgadles">
+    <p id="aaa">50</p>
+    <p id="result">moja liczba to 50</p>
+
+
+    <script>
+        /* (***) Odwrotny wariant: to użytkownik wymyśla liczbę, a komputer zgaduje. Użytkownik przy pomocy przycisków "mniej", "więcej" i "zgadłeś" informuje komputer o powodzeniu.*/
+        var mniej = document.querySelector('#mniej');
+        var wiecej = document.querySelector('#wiecej');
+        var zgadles = document.querySelector('#zgadles');
+        var min = 0;
+        var max = 100;
+        
+        var los = Math.floor(Math.random()*(max-min)+1);
+        
+        document.querySelector('#result').innerHTML=`czy ta liczba to ${los}`
+        mniej.addEventListener('click', function(){
+            max = los; console.log('1Min to: '+min);
+            console.log('1Max to: '+max);
+            console.log(`1Los to:` + los);
+            los = Math.floor(Math.random()*(max-min)+1);
+            console.log('Min to: '+min);
+            console.log('Max to: '+max);
+            console.log(`Los to:` + los);
+            return los;
+        });// koniec zdarzenia mniej
+        
+        wiecej.addEventListener('click', function(){
+            min = los;
+            console.log('1Min to: '+min);
+            console.log('1Max to: '+max);
+            console.log(`1Los to:` + los)
+            los = Math.floor(Math.random()*(max-min)+min);
+            console.log('Min to: '+min);
+            console.log('Max to: '+max);
+            console.log(`Los to:` + los)
+        });// koniec zdarzenia wiecej
+        
+        
+        
+        zgadles.addEventListener('click', function() { 
+            document.querySelector('#result').innerHTML = `Brawo komputerku wygrales`
+        }); // koniec zdarzenia
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Stwórz tablicę wypełnioną losowymi wartościami, a następnie wypisz:
+a) całość w odwrotnej kolejności
+b) co drugi element-->
+
+    <input type="submit" id="click">
+    <p id="output"></p>
+    <script>
+        // Grabs
+        const clickSubmit = document.querySelector('#click');
+        // Array
+        let arr = [];
+        let arr2= [];
+        arr.length = 8;
+
+
+
+
+        clickSubmit.addEventListener('click', function() {
+            let j=0;
+            for(let i = 0;i<arr.length;i++){
+                arr[i]=Math.floor(Math.random()*10+1);
+                if(i%2!=0){
+                    arr2[j]=arr[i];
+                    j++;
+                }
+            }
+            console.log(arr)
+            console.log(arr2)
+        });
+        /*
+
+        */
+
+    </script>
+</body>
+
+</html>

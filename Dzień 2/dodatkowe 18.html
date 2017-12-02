@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Kwota datku" id="pole">
+    <input type="submit" id="wplac-button" value="wplac">
+    <p id="suma">Suma:</p>
+    <p id="licz">Ilość wpłat:</p>
+    <p id="srednia">Średnia wpłata:</p>
+
+
+    <script>
+        /* Na stronie znajduje się pole tekstowe - po wpisaniu tam kwoty datku i naciśnięciu przycisku wpłać, jest ona dodawana do ogólnej sumy zebranych środków. Odnotowywana jest również liczba wpłat i wyświetlana ich średnia wartość. Nieprawidłową wpłatę (NaN lub liczba mniejsza od 0) traktuj jako 0 */
+        var wplac = document.querySelector("#wplac-button")
+        var suma = 0;
+        var ile = 0;
+
+        function wylicz() {
+            suma += kwota;
+            ile++;
+            var srednia = suma / ile;
+            srednia = srednia.toFixed(3);
+            document.querySelector("#suma").innerHTML = `Suma: ${suma}`;
+            document.querySelector("#licz").innerHTML = `Ilość wpłat: ${ile}`;
+            document.querySelector("#srednia").innerHTML = `srednia wpłata: ${srednia}`;
+        }
+
+        wplac.addEventListener("click", function() {
+            var kwota = parseFloat(document.querySelector("#pole").value)
+            if (isNaN(kwota) != false || kwota < 0) {
+                kwota = 0;
+                suma += kwota;
+                ile++;
+                var srednia = suma / ile;
+                srednia = srednia.toFixed(3);
+                document.querySelector("#suma").innerHTML = `Suma: ${suma}`;
+                document.querySelector("#licz").innerHTML = `Ilość wpłat: ${ile}`;
+                document.querySelector("#srednia").innerHTML = `srednia wpłata: ${srednia}`;
+            } else {
+                suma += kwota;
+                ile++;
+                var srednia = suma / ile;
+                srednia = srednia.toFixed(3);
+                document.querySelector("#suma").innerHTML = `Suma: ${suma}`;
+                document.querySelector("#licz").innerHTML = `Ilość wpłat: ${ile}`;
+                document.querySelector("#srednia").innerHTML = `srednia wpłata: ${srednia}`;
+
+            }
+
+
+        }) // Koniec zdarzenia
+    </script>
+</body>
+
+</html>

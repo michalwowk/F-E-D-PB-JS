@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="submit" id="click" value="click">
+    
+    <input type="text" id="pole" placeholder="pole">
+
+    <p id="result">result</p>
+    <p id="result1">result</p>
+    
+       <script>
+        var button = document.querySelector('#click')
+        var arr = [];
+        var rangeOfRandoms = 20;
+
+
+        button.addEventListener('click', function() {
+            var value1 = parseInt(document.querySelector('#pole').value, 10);
+            secondArray (value1);
+        });
+           
+        function secondArray(arrSize){
+            var arr2=[];
+            createAnArray(arrSize);
+            arr2=arr.sort(compareNumbers);
+             document.querySelector('#result1').innerHTML = `Posortowna tablica to: [${arr2}]`;
+            }// Koniec funkcji aboveIndicatedValue
+            
+
+        function createAnArray(arrSize) {
+            for (i = 0; i < arrSize; i++) {
+                var los = Math.floor(Math.random() * rangeOfRandoms + 1);
+                arr[i] = los;
+            }
+            document.querySelector('#result').innerHTML = `Twoja tablica to: [${arr}]`;
+        };
+           /// Koniec funkcji createAnArray
+           
+        function compareNumbers(a, b) {
+ return a - b }; // koniec  compareNumbers
+
+    </script>
+
+</body>
+
+</html>

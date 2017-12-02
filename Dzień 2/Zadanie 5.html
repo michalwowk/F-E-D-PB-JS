@@ -1,0 +1,33 @@
+<!--Napisz program, który będzie losował liczby (z przedziału 1-20), dopókich ich suma nie przekroczy 100, a następnie wyświetli ich średnią.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+
+    <script>
+        var suma = 0;
+        var ile = 0;
+
+        while (suma <= 100) {
+            var los = Math.floor(Math.random() * 20 + 1)
+            suma += los;
+            ile++;
+        }
+        console.log("Suma: " + suma);
+        console.log("Ile: " + ile);
+        console.log("Srednia " + (suma / ile).toFixed(2));
+
+    </script>
+</body>
+
+</html>

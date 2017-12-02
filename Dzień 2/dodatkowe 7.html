@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="submit" id="input" value="zwieksz" onclick="klik()">
+    <input type="submit" id="input" value="zmniejsz" onclick="zmniejsz()">
+    <p id="result">aa</p>
+    <p id="licznik">Kliknales 0 razy</p>
+    <script>
+        var a = false;
+        var ile = 0;
+
+        
+        function klik() {
+            ile++;
+            document.getElementById("licznik").innerHTML = "Kliknales " + ile + " razy";
+            if(ile>100){
+                document.getElementById("licznik").innerHTML = "ponad 100"
+            }
+        }; // Koniec funkcji klik
+        function zmniejsz(){
+            ile--;
+            document.getElementById("licznik").innerHTML = "Kliknales " + ile + " razy";
+            if(ile<0){
+                document.getElementById("licznik").innerHTML = "mniej niz zerooo"
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="field1">
+    <input type="submit" id="click">
+    <p id="result"></p>
+
+    <script>
+        var clickBtn = document.getElementById('click');
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9,2,2];
+        var result = document.getElementById('result')
+        clickBtn.addEventListener('click', function() {
+            var x = parseInt(document.getElementById('field1').value, 10)
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i]%x==0) {
+                    var flaga = true;
+                    break;
+                }
+            }
+            if (flaga==true){
+                    console.log(i);
+                    console.log(arr)
+                    console.log(arr[i])
+                }
+                else console.log(NaN);
+            
+        }); // koniec zdarzenia onClick
+
+    </script>
+</body>
+
+</html>

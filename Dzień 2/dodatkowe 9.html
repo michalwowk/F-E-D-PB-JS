@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="pole">
+    <input type="submit" onclick="klik()">
+    <p id="result"></p>
+    <script>
+        function klik() {
+            var a =document.getElementById("pole").value;
+            document.getElementById("result").innerHTML= a+", "+a+", "+a
+        }
+    </script>
+</body>
+</html>

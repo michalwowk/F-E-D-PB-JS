@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="field1">
+    <input type="submit" id="click">
+    <p id="result"></p>
+
+    <script>
+        var clickBtn = document.getElementById('click');
+        var arr = [];
+        var result = document.getElementById('result')
+        clickBtn.addEventListener('click', function() {
+            var fValue = parseInt(document.getElementById('field1').value, 10)
+            arr[0] = 1000;
+            for (var i = 0; i < fValue - 1; i++) {
+                arr.push(Math.floor(arr[i] / 2));
+            }
+            console.log(arr)
+        }); // koniec zdarzenia onClick
+
+    </script>
+</body>
+
+</html>

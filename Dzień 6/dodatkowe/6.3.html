@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <input type="text" placeholder="ilosc kolumn #f1" id="field_1">
+    <input type="text" placeholder="ilosc wierszy #f2" id="field_2">
+    <input type="text" placeholder="tekst1 #3" id="field_3">
+    <input type="text" placeholder="tekst2 #4" id="field_4">
+    <div id="wrapper">
+        <input type="button" id="btn_1" value="Make a table">
+
+    </div>
+</body>
+<script>
+    // Grabs ///////////////
+    var btn_1 = document.getElementById('btn_1')
+    var wrapper = document.getElementById('wrapper');
+    // Creating tbody
+    var table = document.createElement('table');
+    wrapper.appendChild(table);
+    var tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+
+    // There we go, lets make column and row ! ///////////
+    btn_1.addEventListener('click', function() {
+        var f1_V = parseInt(document.getElementById('field_1').value, 10);
+        var f2_V = parseInt(document.getElementById('field_2').value, 10);
+        var f3_V = document.getElementById('field_3').value;
+        var f4_V = document.getElementById('field_4').value;
+        for (var r = 0; r < f2_V; r++) {
+            var row = document.createElement('tr');
+            tbody.appendChild(row);
+            // Lets make some cells :P 
+            for (var c = 0; c < f1_V; c++) {
+                var cells = document.createElement('td');
+                row.appendChild(cells)
+                if (c % 2 == 0 && r % 2 == 0 || r % 2 !== 0 && c % 2 !== 0) {
+                    var tekst = document.createTextNode(f3_V);
+                    cells.appendChild(tekst)
+                    cells.style.backgroundColor = 'green'
+                } else {
+                    var tekst = document.createTextNode(f4_V);
+                    cells.appendChild(tekst)
+                }
+            }
+        }
+    })
+
+</script>
+
+</html>

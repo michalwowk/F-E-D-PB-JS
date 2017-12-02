@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="field1">
+    <input type="submit" id="click">
+    <p id="result"></p>
+
+    <script>
+        var clickBtn = document.getElementById('click');
+        var arr = [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 1, 1, 1, 2, 2, 10, 11, 10, 11, 11, 11];
+        var arr2 = [];
+        var result = document.getElementById('result');
+
+        var max = Math.max(...arr);
+        var min = Math.min(...arr);
+
+        var counter = 0;
+
+        clickBtn.addEventListener('click', function() {
+            var x = parseInt(document.getElementById('field1').value, 10)
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == min) {
+                    arr2.push(arr[i]);
+                    counter++;
+                }
+            }
+            console.log(min);
+            console.log(arr2);
+            console.log(counter);
+        }); // koniec zdarzenia onClick
+
+    </script>
+</body>
+
+</html>

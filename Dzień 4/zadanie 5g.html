@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="submit" id="click" value="click">
+    <input type="text" id="pole" placeholder="pole">
+    <input type="text" id="pole1" placeholder="pole1">
+    <input type="text" id="pole2" placeholder="pole2">
+
+    <p id="result">result</p>
+    <p id="result1">result1</p>
+    <script>
+        var button = document.querySelector('#click')
+        var tekst1 = "";
+        var suma = 0;
+        var arr = [];
+
+
+
+        button.addEventListener('click', function() {
+            var value1 = parseInt(document.querySelector('#pole').value, 10);
+            var value2 = parseFloat(document.querySelector('#pole1').value);
+            var value3 = parseFloat(document.querySelector('#pole2').value);
+            returnAnArray(value1, value2, value3);
+        });
+
+        function returnAnArray(arrSize, arrMin, arrMax) {
+            var arr2=[];
+            createAnArray(arrSize);
+            for (var i = 0; i < arrSize; i++) {
+                if (arr[i] >= arrMin && arr[i] <= arrMax) {
+                    arr2.push(arr[i]);
+                    console.log(arr[i]);                }
+                document.querySelector('#result1').innerHTML = `Twoja wynikowa tablica to: ${arr2}`;
+            }
+        }
+
+        function createAnArray(a) {
+
+            for (i = 0; i < a; i++) {
+                var los = Math.floor(Math.random() * 100 + 1);
+                arr[i] = los;
+            }
+            document.querySelector('#result').innerHTML = `Twoja tablica to: [${arr}]`;
+        }; /// Koniec funkcji createAnArray
+
+    </script>
+
+</body>
+
+</html>

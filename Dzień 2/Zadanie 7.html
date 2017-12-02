@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Wpisz swoją liczbę" id="pole">
+    <input type="submit" value="ZAGADUJĘ" onclick="zgadnij()">
+    <p id="result">Zagraj z komputerem </p>
+</body>
+<script>
+    var los = Math.floor(Math.random() * 100 + 1);
+    console.log(los);
+
+    function zgadnij() {
+        var liczba = parseInt(document.getElementById("pole").value);
+        if (liczba > los) {
+            document.getElementById("result").innerHTML = "Za duzo";
+        } else if (liczba < los) {
+            document.getElementById("result").innerHTML = "Za mało";
+        } else {
+            document.getElementById("result").innerHTML = "Wygrales";
+        }
+    }
+    document.getElementById("pola").innerHTML = "<input type='text' id='pole" + i + "' placeholer='pole" + i + "'/>"
+
+</script>
+
+</html>

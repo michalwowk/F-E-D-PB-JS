@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Stwórz tablicę o wskazanym rozmiarze wypełnioną losowymi wartościami, a następnie znajdź:
+największą wartość parzystą-->
+
+    <input type="submit" id="click">
+    <input type="text" id="array-size">
+    <p id="output"></p>
+    <script>
+        // Grabs
+        const clickSubmit = document.querySelector('#click');
+        // Array
+        let arr = [];
+        let arr2 = [];
+        let max = 0;
+
+
+        clickSubmit.addEventListener('click', function() {
+            arr.length = parseInt(document.querySelector("#array-size").value, 10);
+            var len = arr.length;
+            for (let i = 0; i < len; i++) {
+                arr[i] = Math.floor(Math.random() * 100 + 1) // losuje liczby -  sprawdzone
+                if (arr[i]>max && arr[i]%2==0){
+                    max=arr[i];
+                }
+            }
+            console.log(arr)
+            console.log(max)
+
+        }); // koniec zdarzenia
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="pole">
+    <input type="submit" onclick="klik()">
+    <p id="result"></p>
+    <script>
+        function klik() {
+            var a = parseInt(document.getElementById("pole").value);
+            if(a%2===0){
+                document.getElementById("result").innerHTML= "Liczba parzysta"
+            } else{
+                document.getElementById("result").innerHTML= "Liczba nieparzysta"
+            }
+            
+        }
+    </script>
+</body>
+</html>

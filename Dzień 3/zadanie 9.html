@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="submit" id="click" value="click">
+
+    <input type="text" id="pole" placeholder="pole">
+
+    <p id="result">result</p>
+    <p id="result1">result</p>
+    <p id="result2">result</p>
+    <p id="result3">result</p>
+
+    <script>
+        var button = document.querySelector('#click')
+        var arr = [];
+        var rangeOfRandoms = 20;
+        var i = 0;
+
+
+        button.addEventListener('click', function() {
+            var value1 = parseInt(document.querySelector('#pole').value, 10);
+            addArrayElement(value1);
+            zadanie8(value1);
+            zadanie7b(arr.length);
+            zadanie7a(arr.length);
+        });
+
+        function zadanie7a(arrSize) {
+            var ile = 0;
+            for (var i = 0; i < arrSize; i++) {
+                if (arr[i + 1] < arr[i]) {
+                    ile++;
+                }
+                document.querySelector('#result3').innerHTML = `Ilość sąsiadów spełniających warunek to: ${ile}`;
+            }
+        }
+
+        function zadanie7b(arrSize) {
+            var ile = 0;
+            for (var i = 0; i < arrSize; i++) {
+                if (arr[i - 1] == arr[i]) {
+                    ile++;
+                }
+                document.querySelector('#result2').innerHTML = `Ilość par sąsiadów spełniających warunek to: ${ile}`;
+            } // Koniec funkcji aboveIndicatedValue
+
+        }
+
+        function zadanie8() {
+            var arr2 = [];
+            arr2 = arr.sort(compareNumbers);
+            document.querySelector('#result1').innerHTML = ` Posortowna tablica to: [${arr2}]`;
+        } // Koniec funkcji aboveIndicatedValue
+
+
+        function addArrayElement(element) {
+            arr.push(element)
+            document.querySelector('#result').innerHTML = `Twoja tablica to: [${arr}]`;
+        };
+        /// Koniec funkcji createAnArray
+
+        function compareNumbers(a, b) {
+            return a - b
+        }; // koniec  compareNumbers
+
+    </script>
+
+</body>
+
+</html>

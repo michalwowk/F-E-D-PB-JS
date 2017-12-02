@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="iks">
+    <input type="text" id="igek">
+
+    <input type="submit" id="licz" value="licz">
+    <p id="result"></p>
+    <script>
+        /*    Na stronie wyświetlane jest pole do wczytania liczby X oraz przycisk, po którego naciśnięciu wyświetlona zostaje wartość 2*X+1.    */
+        
+        var licz = document.querySelector("#licz");
+        
+        licz.addEventListener("click",function(){
+            var x = parseFloat(document.querySelector("#iks").value);
+            console.log(x);
+            var wynik = 2*x+1;
+            document.querySelector("#result").innerHTML= `Wynik to: ${wynik}`; // uzycie znakow akcentu " ` " i ${zmienna}, aby uniknac konkatenacji za pomoca plusow :) 
+        }); ///  koniec zdarzenia click, inputa o id licz
+        
+
+        
+
+    </script>
+</body>
+
+</html>

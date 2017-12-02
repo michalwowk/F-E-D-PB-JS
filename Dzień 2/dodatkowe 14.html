@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="iks" placeholder="X">
+    <input type="text" id="igrek" placeholder="Y">
+
+    <input type="submit" id="licz" value="licz">
+    <p id="result"></p>
+    <script>
+        /*    Na stronie wyświetlane są dwa pola, do wczytania liczb X i Y. Po naciśnięciu przycisku, wyświetlana jest wartość X*Y+2*X-Y+3   */
+
+        var licz = document.querySelector("#licz");
+
+        licz.addEventListener("click", function() {
+            var x = parseFloat(document.querySelector("#iks").value);
+            var y = parseFloat(document.querySelector("#igrek").value);
+            
+            var wynik = (x*y)+(2*x)-(y+3);
+            
+            document.querySelector("#result").innerHTML= `Wynik to: ${wynik}`; // uzycie znakow akcentu " ` " i ${zmienna}, aby uniknac konkatenacji za pomoca plusow :) 
+            
+        }); ///  koniec zdarzenia click, inputa o id licz
+
+    </script>
+</body>
+
+</html>

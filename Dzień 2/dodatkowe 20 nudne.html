@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="pole">
+    <input type="submit" value="licytuj" id="licytuj-button">
+    <p>Aktualna kwota to: <span id="kwota" onclick="click">100</span></p>
+    <script>
+        function click(){
+        var kwota = document.querySelector("#kwota").textContent;
+        console.log(kwota);
+        }
+        
+    </script>
+</body>
+</html>

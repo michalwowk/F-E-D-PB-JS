@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="submit" id="click" value="click">
+    
+    <input type="text" id="pole" placeholder="pole">
+    <input type="text" id="pole1" placeholder="pole1">
+
+    <p id="result">result</p>
+    <p id="result1">result1</p>
+    
+       <script>
+        var button = document.querySelector('#click')
+        var suma = 0;
+        var arr = [];
+        var rangeOfRandoms = 20;
+
+
+        button.addEventListener('click', function() {
+            var value1 = parseInt(document.querySelector('#pole').value, 10);
+            var value2 = parseFloat(document.querySelector('#pole1').value);
+            secondArray (value1, value2);
+        });
+           
+        function secondArray(arrSize){
+            var arr2=[];
+            createAnArray(arrSize);
+            for (var i=0;i<arrSize;i++){
+                if (arr[i]%2!=0){
+                    arr2.push(arr[i]*3+1);
+                }
+                else arr2.push(arr[i])
+             document.querySelector('#result1').innerHTML = `Druga tablica to: [${arr2}]`;
+            }// Koniec funkcji aboveIndicatedValue
+            
+        }
+
+        function createAnArray(arrSize) {
+            for (i = 0; i < arrSize; i++) {
+                var los = Math.floor(Math.random() * rangeOfRandoms + 1);
+                arr[i] = los;
+            }
+            document.querySelector('#result').innerHTML = `Twoja tablica to: [${arr}]`;
+        }; /// Koniec funkcji createAnArray
+
+    </script>
+
+</body>
+
+</html>
