@@ -1,2 +1,1 @@
-# F-E-D-PB-JS
-Zadania z Podstaw JavaScript
+Javascript exercises done for learning purpose.
